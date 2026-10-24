@@ -1,0 +1,14 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>用量上报</title><link rel="stylesheet" href="style.css"></head><body>
+<main><h1>用量上报</h1><p>本机 → Tailscale → VPS。只上报请求统计，供应商和 Agent 配置留在本机。</p>
+<form id="settings"><label><input id="enabled" type="checkbox">启用后台上报</label>
+<label>VPS 网关地址<input id="endpoint" type="url" required placeholder="http://your-vps:3425"></label>
+<label>本地供应商 ID（逗号分隔）<input id="providers" required placeholder="codex"></label>
+<p>只采集列表中的供应商；Remote Magpie、其他设备和已上报的记录自动排除。首次建议只填 codex。</p>
+<label>轮询间隔（毫秒）<input id="interval" type="number" min="250" max="60000" step="250" value="2000" required></label>
+<label><input id="backfill" type="checkbox">首次启用时补传已有历史</label>
+<p>先在本机 Magpie 配置目录的 <code>usage-reporter/credentials.json</code> 保存网关凭据。密钥不填在此页面，也不包含在插件包内。</p>
+<button type="submit">保存配置</button> <button id="replay" type="button">重新补传全部历史</button></form>
+<p id="message" role="status"></p>
+<h2>查看结果</h2><p>VPS：用量 → 请求 → 来源筛选“上报”。本机运行状态和待传数量记录在 <code>usage-reporter/status.json</code>；此页不显示后台实时状态。</p>
+<p>宿主按需加载插件；启用后打开 Magpie 的“插件 → 已安装”。Magpie 退出时停止，运行中目标延迟约为轮询间隔；离线重试最长间隔 60 秒。原生“计算机”筛选不包含这些上报记录。</p></main>
+<script src="_magpie/bridge.js"></script><script src="app.js"></script></body></html>

@@ -1,0 +1,51 @@
+{
+  "name": "@lemonawa/magpie-usage-reporter",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "node --test"
+  },
+  "magpie": {
+    "page": {
+      "title": "Usage reporter",
+      "titles": {
+        "zh": "用量上报"
+      },
+      "file": "page/index.html"
+    },
+    "permissions": [],
+    "options": {
+      "enabled": false,
+      "endpoint": "",
+      "includeProviders": [
+        "codex"
+      ],
+      "intervalMs": 2000,
+      "backfill": true
+    }
+  },
+  "description": "Magpie usage-only reporting with a durable outbox, replay and cross-device deduplication",
+  "license": "MIT",
+  "files": [
+    "index.mjs",
+    "entry.mjs",
+    "reporter.mjs",
+    "page",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lemonawa/magpie-usage-reporter.git"
+  },
+  "homepage": "https://github.com/Lemonawa/magpie-usage-reporter#readme",
+  "bugs": {
+    "url": "https://github.com/Lemonawa/magpie-usage-reporter/issues"
+  }
+}

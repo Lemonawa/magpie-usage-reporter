@@ -1,0 +1,12 @@
+node_modules/
+.upstream-magpie/
+__pycache__/
+*.pyc
+.DS_Store
+usage-reporter/
+credentials.json
+state.json
+identity.json
+status.json
+*.log
+*.zip
